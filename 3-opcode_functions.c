@@ -34,7 +34,6 @@ void mod(stack_t **stack, unsigned int line_number)
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	char str_line_mumber[10];
-	int sum;
 
 	sprintf(str_line_mumber, "%d", line_number);
 	if (!*stack)
