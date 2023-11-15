@@ -6,6 +6,7 @@ static instruction_t opcodes[] = {
 	{"pint", pint},
 	{"pop", pop},
 	{"swap", swap},
+	{"add", add},
 	{NULL, NULL},
 };
 
