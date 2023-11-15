@@ -4,7 +4,6 @@ void push(stack_t **stack, unsigned int line_number)
 {
     char *arg, str_line_mumber[10];
     int val;
-    stack_t *new_node;
 
     arg = strtok(NULL, " \t\n");
     sprintf(str_line_mumber, "%d", line_number);
