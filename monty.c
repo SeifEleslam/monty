@@ -46,27 +46,27 @@ int read_monty_file(char *file_name)
 
 int exec_opcode(char *opcode, char *arg, unsigned int line_number)
 {
-    void (*func)(stack_t **stack, unsigned int line_number);
+    instruction_t *selected_opcode;
     char str_line_num[10];
 
-    func = check_opcode(opcode);
-    if (!func)
+    selected_opcode = check_opcode(opcode);
+    if (!selected_opcode)
     {
         sprintf(str_line_num, "%d", line_number);
         write_err(4, "L", str_line_num, ": unknown instruction ", opcode);
         return (EXIT_FAILURE);
     }
-    func(global_stack, str_to_int(arg));
+    selected_opcode->f(global_stack, str_to_int(arg));
     return (0);
 }
 
-void *check_opcode(char *opcode)
+instruction_t *check_opcode(char *opcode)
 {
     int i;
 
     for (i = 0; opcodes[i].opcode; i++)
         if (strcmp(opcode, opcodes[i].opcode) == 0)
-            return (opcodes[i].f);
+            return (&opcodes[i]);
 
     return (NULL);
 }

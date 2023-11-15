@@ -46,7 +46,7 @@ void *_realloc(void *ptr, int old_size, int new_size);
 int read_monty_file(char *file_name);
 void write_err(int n, ...);
 int str_to_int(char *s);
-void *check_opcode(char *opcode);
+instruction_t *check_opcode(char *opcode);
 int exec_opcode(char *opcode, char *arg, unsigned int line_number);
 
 /* operations */
