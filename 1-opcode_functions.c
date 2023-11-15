@@ -67,3 +67,25 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	del_stack_top(stack);
 }
+
+/**
+ * pop - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	char str_line_mumber[10];
+
+	sprintf(str_line_mumber, "%d", line_number);
+	if (!*stack || !(*stack)->next)
+	{
+		write_err(3, "L", str_line_mumber, ": can't swap, stack too short");
+		exit_program(EXIT_FAILURE);
+	}
+	(*stack)->prev = (*stack)->next;
+	(*stack)->next->next = (*stack);
+	(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->next->next;
+	*stack = (*stack)->prev;
+}
