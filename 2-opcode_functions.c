@@ -91,7 +91,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	sprintf(str_line_mumber, "%d", line_number);
 	if (!*stack || !(*stack)->next)
 	{
-		write_err(3, "L", str_line_mumber, ": can't div, stack too short");
+		write_err(3, "L", str_line_mumber, ": can't mul, stack too short");
 		exit_program(EXIT_FAILURE);
 	}
 	sum = (*stack)->next->n * (*stack)->n;
