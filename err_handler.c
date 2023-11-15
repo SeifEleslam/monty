@@ -1,5 +1,9 @@
 #include "monty.h"
 
+/**
+ * write_err - add node to begginig of d linked list
+ * @n: head of the list
+ */
 void write_err(int n, ...)
 {
 	char err_msg[1024];

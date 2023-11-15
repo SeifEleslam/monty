@@ -57,5 +57,5 @@ int _getline(char *line, FILE *fp)
 		return (-1);
 
 	*ptr = '\0';
-	return 0;
+	return (0);
 }

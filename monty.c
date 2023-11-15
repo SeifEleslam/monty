@@ -8,6 +8,13 @@ static instruction_t opcodes[] = {
 	{NULL, NULL},
 };
 
+/**
+ * main - add node to begginig of d linked list
+ * @args: head of the list
+ * @argv: int
+ * Return: 0
+ */
+
 int main(int args, char **argv)
 {
 	global_var.stack = NULL;
@@ -17,6 +24,10 @@ int main(int args, char **argv)
 	return (0);
 }
 
+/**
+ * read_monty_file - add node to begginig of d linked list
+ * @file_name: head of the list
+ */
 void read_monty_file(char *file_name)
 {
 	char *opcode, buff[1024];
@@ -39,6 +50,12 @@ void read_monty_file(char *file_name)
 	exit_program(res ? res : 0);
 }
 
+/**
+ * exec_opcode - add node to begginig of d linked list
+ * @opcode: head of the list
+ * @line_number: int
+ * Return: exit status
+ */
 int exec_opcode(char *opcode, unsigned int line_number)
 {
 	instruction_t *selected_opcode;
@@ -55,6 +72,11 @@ int exec_opcode(char *opcode, unsigned int line_number)
 	return (0);
 }
 
+/**
+ * check_opcode - add node to begginig of d linked list
+ * @opcode: head of the list
+ * Retrun: the selected instruction
+ */
 instruction_t *check_opcode(char *opcode)
 {
 	int i;
@@ -66,6 +88,10 @@ instruction_t *check_opcode(char *opcode)
 	return (NULL);
 }
 
+/**
+ * exit_program - add node to begginig of d linked list
+ * @status_code: head of the list
+ */
 void exit_program(int status_code)
 {
 	free_stack(global_var.stack);

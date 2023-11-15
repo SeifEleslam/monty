@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * push - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
 void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg, str_line_mumber[10];
@@ -17,11 +22,21 @@ void push(stack_t **stack, unsigned int line_number)
 		write_err(1, "Error: malloc failed"), exit_program(EXIT_FAILURE);
 }
 
+/**
+ * pall - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	print_stack(*stack);
 }
 
+/**
+ * pint - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
 void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	char str_line_mumber[10];
@@ -35,6 +50,11 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
+/**
+ * pop - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	char str_line_mumber[10];
