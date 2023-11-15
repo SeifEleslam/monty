@@ -48,3 +48,20 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * pstr - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
+void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *curr = *stack;
+
+	for (; curr; curr = curr->next)
+		if (curr->n < 0 || curr->n > 127)
+			putchar(curr->n);
+		else
+			break;
+	putchar('\n');
+}

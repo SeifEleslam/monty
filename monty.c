@@ -13,6 +13,7 @@ static instruction_t opcodes[] = {
 	{"mul", mul},
 	{"mod", mod},
 	{"pchar", pchar},
+	{"pstr", pstr},
 	{NULL, NULL},
 };
 
