@@ -1,6 +1,6 @@
 push 1
-push 2
-push 3
+push 222
+push 322
 pall
 add
 pall
