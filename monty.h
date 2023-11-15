@@ -50,10 +50,12 @@ int is_int(char *s);
 int _getline(char *line, FILE *fp);
 instruction_t *check_opcode(char *opcode);
 int exec_opcode(char *line, unsigned int line_number);
+void exit_program(int status_code);
 
 /* operations */
 stack_t *push_stack(stack_t **head, const int n);
 size_t print_stack(const stack_t *h);
+void free_stack(stack_t *head);
 
 /* opcodes functions */
 void push(stack_t **stack, unsigned int line_number);

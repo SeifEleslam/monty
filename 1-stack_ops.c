@@ -15,6 +15,7 @@ stack_t *push_stack(stack_t **head, const int n)
 
     new_node->n = n;
     new_node->next = *head;
+    new_node->prev = NULL;
     if (*head)
     {
         new_node->prev = (*head)->prev;
@@ -41,4 +42,15 @@ size_t print_stack(const stack_t *h)
     for (head = (stack_t *)h; head; head = head->next)
         printf("%d\n", head->n), len++;
     return (len);
+}
+
+/**
+ * free_stack - add node to end of d linked list
+ * @head: head of the list
+ * Return: new node
+ */
+void free_stack(stack_t *head)
+{
+    if (head)
+        free_stack(head->next), free(head);
 }

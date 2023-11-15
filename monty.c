@@ -5,13 +5,12 @@ static instruction_t opcodes[] = {
     {"pall", pall},
     {NULL, NULL},
 };
-static stack_t **global_stack;
+static stack_t *global_stack;
+static FILE *fp;
 
 int main(int args, char **argv)
 {
-    stack_t *start;
-
-    start = NULL, global_stack = &start;
+    global_stack = NULL;
     if (args != 2)
         write_err(1, "USAGE: monty file"), exit(EXIT_FAILURE);
     read_monty_file(argv[1]);
@@ -20,7 +19,6 @@ int main(int args, char **argv)
 
 int read_monty_file(char *file_name)
 {
-    FILE *fp;
     char *opcode, buff[1024];
     unsigned int i;
     int res;
@@ -38,9 +36,8 @@ int read_monty_file(char *file_name)
         if (res != 0)
             break;
     }
-    free(buffer);
-    fclose(fp);
-    exit(res ? res : 0);
+    // fclose(fp);
+    exit_program(res ? res : 0);
 }
 
 int exec_opcode(char *opcode, unsigned int line_number)
@@ -51,11 +48,12 @@ int exec_opcode(char *opcode, unsigned int line_number)
     selected_opcode = check_opcode(opcode);
     if (!selected_opcode)
     {
+        free_stack(global_stack);
         sprintf(str_line_num, "%d", line_number);
         write_err(4, "L", str_line_num, ": unknown instruction ", opcode);
         return (EXIT_FAILURE);
     }
-    selected_opcode->f(global_stack, line_number);
+    selected_opcode->f(&global_stack, line_number);
     return (0);
 }
 
@@ -68,4 +66,11 @@ instruction_t *check_opcode(char *opcode)
             return (&opcodes[i]);
 
     return (NULL);
+}
+
+void exit_program(int status_code)
+{
+    free_stack(global_stack);
+    fclose(fp);
+    exit(status_code);
 }

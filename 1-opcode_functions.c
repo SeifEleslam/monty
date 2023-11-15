@@ -6,11 +6,13 @@ void push(stack_t **stack, unsigned int line_number)
     int val;
 
     arg = strtok(NULL, " \t\n");
-    if (is_int(arg) != 0)
+    if (!arg || is_int(arg) != 0)
     {
+        // free_stack(*stack);
         sprintf(str_line_mumber, "%d", line_number);
         write_err(3, "L", str_line_mumber, ": usage: push integer");
-        exit(EXIT_FAILURE);
+        // exit(EXIT_FAILURE);
+        exit_program(EXIT_FAILURE);
     }
     val = atoi(arg);
     push_stack(stack, val);
