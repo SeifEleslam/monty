@@ -59,9 +59,30 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	stack_t *curr = *stack;
 
 	for (; curr; curr = curr->next)
+	{
 		if (curr->n < 1 || curr->n > 127)
 			break;
-		else
-			putchar(curr->n);
+		putchar(curr->n);
+	}
 	putchar('\n');
+}
+
+/**
+ * rotl - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
+void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *first = *stack, *last = *stack;
+
+	if (!first || !first->next)
+		return;
+	for (; last->next;)
+		last = last->next;
+	last->next = first;
+	first->prev = last;
+	*stack = first->next;
+	first->next = NULL;
+	(*stack)->prev = NULL;
 }
