@@ -48,7 +48,7 @@ void read_monty_file(char *file_name)
 	for (i = 1; _getline(buff, global_var.fp) != -1; i++)
 	{
 		opcode = strtok(buff, " \t\n");
-		if (!opcode)
+		if (!opcode || opcode[0] == '#')
 			continue;
 		res = exec_opcode(opcode, i);
 		if (res != 0)
