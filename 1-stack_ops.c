@@ -49,10 +49,9 @@ size_t print_stack(const stack_t *h)
  * @h: head of the list
  * Return: len of the list
  */
-size_t del_stack_top(const stack_t **h)
+void del_stack_top(stack_t **h)
 {
 	stack_t *head;
-	size_t len;
 
 	head = *h;
 	*h = (*h)->next;
