@@ -32,5 +32,5 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		write_err(3, "L", str_line_mumber, ": can't pint, stack empty");
 		exit_program(EXIT_FAILURE);
 	}
-	print_stack(*stack);
+	printf("%d\n", (*stack)->n);
 }
