@@ -3,6 +3,7 @@
 static instruction_t opcodes[] = {
 	{"push", push},
 	{"pall", pall},
+	{"pint", pint},
 	{NULL, NULL},
 };
 static stack_t *global_stack;

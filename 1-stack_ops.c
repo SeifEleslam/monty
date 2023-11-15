@@ -7,25 +7,25 @@
  */
 stack_t *push_stack(stack_t **head, const int n)
 {
-    stack_t *new_node;
+	stack_t *new_node;
 
-    new_node = malloc(sizeof(stack_t));
-    if (!new_node)
-        return (NULL);
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+		return (NULL);
 
-    new_node->n = n;
-    new_node->next = *head;
-    new_node->prev = NULL;
-    if (*head)
-    {
-        new_node->prev = (*head)->prev;
-        if ((*head)->prev)
-            (*head)->prev->next = new_node;
-        (*head)->prev = new_node;
-    }
-    *head = new_node;
+	new_node->n = n;
+	new_node->next = *head;
+	new_node->prev = NULL;
+	if (*head)
+	{
+		new_node->prev = (*head)->prev;
+		if ((*head)->prev)
+			(*head)->prev->next = new_node;
+		(*head)->prev = new_node;
+	}
+	*head = new_node;
 
-    return (new_node);
+	return (new_node);
 }
 
 /**
@@ -35,13 +35,13 @@ stack_t *push_stack(stack_t **head, const int n)
  */
 size_t print_stack(const stack_t *h)
 {
-    stack_t *head;
-    size_t len;
+	stack_t *head;
+	size_t len;
 
-    len = 0;
-    for (head = (stack_t *)h; head; head = head->next)
-        printf("%d\n", head->n), len++;
-    return (len);
+	len = 0;
+	for (head = (stack_t *)h; head; head = head->next)
+		printf("%d\n", head->n), len++;
+	return (len);
 }
 
 /**
@@ -51,6 +51,6 @@ size_t print_stack(const stack_t *h)
  */
 void free_stack(stack_t *head)
 {
-    if (head)
-        free_stack(head->next), free(head);
+	if (head)
+		free_stack(head->next), free(head);
 }
