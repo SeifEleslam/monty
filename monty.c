@@ -17,7 +17,7 @@ int main(int args, char **argv)
     return (0);
 }
 
-int read_monty_file(char *file_name)
+void read_monty_file(char *file_name)
 {
     char *opcode, buff[1024];
     unsigned int i;
@@ -36,7 +36,6 @@ int read_monty_file(char *file_name)
         if (res != 0)
             break;
     }
-    // fclose(fp);
     exit_program(res ? res : 0);
 }
 

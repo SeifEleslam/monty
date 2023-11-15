@@ -43,7 +43,7 @@ extern char *buffer;
 
 /* functions */
 void *_realloc(void *ptr, int old_size, int new_size);
-int read_monty_file(char *file_name);
+void read_monty_file(char *file_name);
 void write_err(int n, ...);
 int str_to_int(char *s);
 int is_int(char *s);
