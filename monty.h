@@ -39,7 +39,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *buffer;
+typedef struct global_s
+{
+	stack_t *stack;
+	FILE *fp;
+} global_t;
+
+extern global_t global_var;
 
 /* functions */
 void *_realloc(void *ptr, int old_size, int new_size);
