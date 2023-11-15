@@ -1,15 +1,9 @@
-push 1
-push    2 sda
-push 1
-push   1
-pint sad
-push 1
 
-
-	   push		 3
-	   pint
-                        	push  12	 sad
-pints	 sad
+push 2
+push 4
+push 60
 pint
+swap
+pall
 
 

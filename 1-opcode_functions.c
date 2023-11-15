@@ -76,6 +76,7 @@ void pop(stack_t **stack, unsigned int line_number)
 void swap(stack_t **stack, unsigned int line_number)
 {
 	char str_line_mumber[10];
+	stack_t *node_1, *node_2;
 
 	sprintf(str_line_mumber, "%d", line_number);
 	if (!*stack || !(*stack)->next)
@@ -83,9 +84,10 @@ void swap(stack_t **stack, unsigned int line_number)
 		write_err(3, "L", str_line_mumber, ": can't swap, stack too short");
 		exit_program(EXIT_FAILURE);
 	}
-	(*stack)->prev = (*stack)->next;
-	(*stack)->next->next = (*stack);
-	(*stack)->next->prev = (*stack)->prev;
-	(*stack)->next = (*stack)->next->next;
-	*stack = (*stack)->prev;
+	node_1 = *stack, node_2 = (*stack)->next;
+	node_2->prev = node_1->prev;
+	node_1->prev = node_1->next;
+	node_1->next = node_2->next;
+	node_2->next = node_1;
+	*stack = node_2;
 }
