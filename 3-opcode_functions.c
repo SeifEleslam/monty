@@ -60,8 +60,8 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	for (; curr; curr = curr->next)
 		if (curr->n < 1 || curr->n > 127)
-			putchar(curr->n);
-		else
 			break;
+		else
+			putchar(curr->n);
 	putchar('\n');
 }
