@@ -57,7 +57,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * @stack: head of the list
  * @line_number: int
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	char str_line_mumber[10];
 	int sum;

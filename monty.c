@@ -9,7 +9,7 @@ static instruction_t opcodes[] = {
 	{"add", add},
 	{"nop", nop},
 	{"sub", sub},
-	{"div", div},
+	{"div", _div},
 	{NULL, NULL},
 };
 
