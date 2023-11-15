@@ -5,6 +5,7 @@ static instruction_t opcodes[] = {
     {"pall", pall},
     {NULL, NULL},
 };
+static stack_t **global_stack;
 
 int main(int args, char **argv)
 {
@@ -20,22 +21,20 @@ int main(int args, char **argv)
 int read_monty_file(char *file_name)
 {
     FILE *fp;
-    ssize_t bytes_read;
-    size_t len;
+    char *opcode, buff[1024];
     unsigned int i;
-    char *buffer, *s1, *s2;
     int res;
 
     fp = fopen(file_name, "r");
-    buffer = NULL, len = 0;
     if (!fp)
         write_err(2, "Error: Can't open file ", file_name), exit(EXIT_FAILURE);
 
-    for (i = 1; (bytes_read = getline(&buffer, &len, fp)) != -1; i++)
+    for (i = 1; _getline(buff, fp) != -1; i++)
     {
-        buffer[strlen(buffer) - 1] = '\0';
-        s1 = strtok(buffer, " "), s2 = strtok(NULL, " ");
-        res = exec_opcode(s1, s2, i);
+        opcode = strtok(buff, " \t\n");
+        if (!opcode)
+            continue;
+        res = exec_opcode(opcode, i);
         if (res != 0)
             break;
     }
@@ -44,7 +43,7 @@ int read_monty_file(char *file_name)
     exit(res ? res : 0);
 }
 
-int exec_opcode(char *opcode, char *arg, unsigned int line_number)
+int exec_opcode(char *opcode, unsigned int line_number)
 {
     instruction_t *selected_opcode;
     char str_line_num[10];
@@ -56,7 +55,7 @@ int exec_opcode(char *opcode, char *arg, unsigned int line_number)
         write_err(4, "L", str_line_num, ": unknown instruction ", opcode);
         return (EXIT_FAILURE);
     }
-    selected_opcode->f(global_stack, str_to_int(arg));
+    selected_opcode->f(global_stack, line_number);
     return (0);
 }
 
@@ -64,7 +63,7 @@ instruction_t *check_opcode(char *opcode)
 {
     int i;
 
-    for (i = 0; opcodes[i].opcode; i++)
+    for (i = 0; opcode && opcodes[i].opcode; i++)
         if (strcmp(opcode, opcodes[i].opcode) == 0)
             return (&opcodes[i]);
 

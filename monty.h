@@ -39,15 +39,17 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t **global_stack;
+extern char *buffer;
 
 /* functions */
 void *_realloc(void *ptr, int old_size, int new_size);
 int read_monty_file(char *file_name);
 void write_err(int n, ...);
 int str_to_int(char *s);
+int is_int(char *s);
+int _getline(char *line, FILE *fp);
 instruction_t *check_opcode(char *opcode);
-int exec_opcode(char *opcode, char *arg, unsigned int line_number);
+int exec_opcode(char *line, unsigned int line_number);
 
 /* operations */
 stack_t *push_stack(stack_t **head, const int n);
