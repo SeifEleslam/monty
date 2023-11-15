@@ -44,6 +44,12 @@ int is_int(char *s)
 	return (0);
 }
 
+/**
+ * _getline - handle signals
+ * @line: str
+ * @fp: str
+ * Return: int
+ */
 int _getline(char *line, FILE *fp)
 {
 	char *ptr;

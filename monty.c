@@ -7,6 +7,7 @@ static instruction_t opcodes[] = {
 	{"pop", pop},
 	{"swap", swap},
 	{"add", add},
+	{"nop", nop},
 	{NULL, NULL},
 };
 
@@ -77,7 +78,7 @@ int exec_opcode(char *opcode, unsigned int line_number)
 /**
  * check_opcode - add node to begginig of d linked list
  * @opcode: head of the list
- * Retrun: the selected instruction
+ * Return: instruction
  */
 instruction_t *check_opcode(char *opcode)
 {

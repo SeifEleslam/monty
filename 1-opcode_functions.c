@@ -69,7 +69,7 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop - add node to begginig of d linked list
+ * swap - add node to begginig of d linked list
  * @stack: head of the list
  * @line_number: int
  */

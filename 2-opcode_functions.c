@@ -20,3 +20,12 @@ void add(stack_t **stack, unsigned int line_number)
 	del_stack_top(stack);
 	(*stack)->n = sum;
 }
+
+/**
+ * nop - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+}
