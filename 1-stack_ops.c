@@ -45,6 +45,21 @@ size_t print_stack(const stack_t *h)
 }
 
 /**
+ * del_stack_top - print d linked list
+ * @h: head of the list
+ * Return: len of the list
+ */
+size_t del_stack_top(const stack_t **h)
+{
+	stack_t *head;
+	size_t len;
+
+	head = *h;
+	*h = (*h)->next;
+	free(head);
+}
+
+/**
  * free_stack - add node to end of d linked list
  * @head: head of the list
  * Return: new node

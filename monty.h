@@ -61,11 +61,13 @@ void exit_program(int status_code);
 /* operations */
 stack_t *push_stack(stack_t **head, const int n);
 size_t print_stack(const stack_t *h);
+size_t del_stack_top(const stack_t **h);
 void free_stack(stack_t *head);
 
 /* opcodes functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number)
 
 #endif

@@ -34,3 +34,16 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	char str_line_mumber[10];
+
+	sprintf(str_line_mumber, "%d", line_number);
+	if (!*stack)
+	{
+		write_err(3, "L", str_line_mumber, ": can't pop an empty stack");
+		exit_program(EXIT_FAILURE);
+	}
+	del_stack_top(stack);
+}
