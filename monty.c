@@ -19,7 +19,7 @@ int main(int args, char **argv)
 
 void read_monty_file(char *file_name)
 {
-    char *opcode, buff[10240000];
+    char *opcode, buff[1024000];
     unsigned int i;
     int res;
 
