@@ -43,6 +43,7 @@ typedef struct global_s
 {
 	stack_t *stack;
 	FILE *fp;
+	char type;
 } global_t;
 
 extern global_t global_var;
@@ -62,6 +63,7 @@ void exit_program(int status_code);
 stack_t *push_stack(stack_t **head, const int n);
 size_t print_stack(const stack_t *h);
 void del_stack_top(stack_t **h);
+stack_t *add_to_queue(stack_t **head, const int n);
 void free_stack(stack_t *head);
 
 /* opcodes functions */
@@ -80,5 +82,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 #endif

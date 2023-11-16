@@ -16,6 +16,8 @@ static instruction_t opcodes[] = {
 	{"pstr", pstr},
 	{"rotl", rotl},
 	{"rotr", rotr},
+	{"stack", stack},
+	{"queue", queue},
 	{NULL, NULL},
 };
 
@@ -29,6 +31,7 @@ static instruction_t opcodes[] = {
 int main(int args, char **argv)
 {
 	global_var.stack = NULL;
+	global_var.type = 's';
 	if (args != 2)
 		write_err(1, "USAGE: monty file"), exit(EXIT_FAILURE);
 	read_monty_file(argv[1]);

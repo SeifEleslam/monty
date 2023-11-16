@@ -29,7 +29,7 @@ stack_t *push_stack(stack_t **head, const int n)
 }
 
 /**
- * add_dnodeint_end - add node to end of d linked list
+ * add_to_queue - add node to end of d linked list
  * @head: head of the list
  * @n: int
  * Return: new node
