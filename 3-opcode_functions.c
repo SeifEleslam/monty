@@ -92,6 +92,8 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
  * @stack: head of the list
  * @line_number: int
  */
+
+/*
 void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *curr = *stack;
@@ -106,4 +108,19 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	curr->next = curr->prev;
 	curr->prev = NULL;
 	*stack = curr;
+}
+*/
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *first = *stack, *last = *stack;
+
+	if (!first || !first->next)
+		return;
+	for (; last->next;)
+		last = last->next;
+	last->prev->next = NULL;
+	last->next = first;
+	last->prev = NULL;
+	first->prev = last;
+	*stack = last;
 }

@@ -1,6 +1,10 @@
-push 1
-push 2
+push 0
 push 3
+push 2
+push 1
+pall
+rotr
+pall
 push 4
 push 5
 push 6
@@ -9,5 +13,4 @@ push 8
 push 9
 push 0
 pall
-rotr
-pall
+
