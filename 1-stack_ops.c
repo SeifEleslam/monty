@@ -81,7 +81,9 @@ void del_stack_top(stack_t **h)
 	stack_t *head;
 
 	head = *h;
-	*h = (*h)->next, (*h)->prev = NULL;
+	*h = (*h)->next;
+	if (*h)
+		(*h)->prev = NULL;
 	free(head);
 }
 
