@@ -86,3 +86,24 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	first->next = NULL;
 	(*stack)->prev = NULL;
 }
+
+/**
+ * rotr - add node to begginig of d linked list
+ * @stack: head of the list
+ * @line_number: int
+ */
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *curr = *stack;
+	stack_t *tmp;
+
+	for (; curr->next; curr = curr->prev)
+	{
+		tmp = curr->next;
+		curr->next = curr->prev;
+		curr->prev = tmp;
+	}
+	curr->next = curr->prev;
+	curr->prev = NULL;
+	*stack = curr;
+}
