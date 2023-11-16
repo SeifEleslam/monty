@@ -19,11 +19,11 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	val = atoi(arg);
 	if (global_var.type == 'q')
+	{
 		if (!push_stack(stack, val))
 			write_err(1, "Error: malloc failed"), exit_program(EXIT_FAILURE);
-		else
-			return;
-	if (global_var.type == 's')
+	}
+	else if (global_var.type == 's')
 		if (!add_to_queue(stack, val))
 			write_err(1, "Error: malloc failed"), exit_program(EXIT_FAILURE);
 }
